@@ -15,7 +15,15 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.get("/posts/:post",function(req,res){
-  console.log(req.params.post);
+  const p=req.params.post;
+  posts.forEach(function(i){
+    if(p==i.title){
+      console.log("match found");
+    }
+    else{
+      console.log("Not found");
+    }
+})
 });
 
 
